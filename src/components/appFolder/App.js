@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Dropdown from 'components/dropdownFolder/Dropdown'
 import Options from 'components/optionsFolder/Options'
 import TextField from 'components/textfieldFolder/TextField'
-import Button from 'components/buttonFolder/Button'
+import {Button} from 'components/Button'
 import Breadcrumb from 'components/breadcrumbFolder/Breadcrumb'
 import Tabs from 'components/tabFolder/Tab'
 import Pane from 'components/tabFolder/Pane'
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Section2 = styled.div`
-  
+
 `;
 
 const HeadingText = styled.div`
@@ -69,7 +69,8 @@ class App extends Component {
           <TextField/>
           <SubHeadingText>Options</SubHeadingText>
           <Options/>
-          <Button/>
+
+          <Button>Button Label</Button>
 
         <Section2>
           <Tabs selected={0}>
