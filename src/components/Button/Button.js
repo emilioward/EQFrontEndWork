@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -11,13 +10,4 @@ const Button = styled.button`
   color: #ffffff;
   `
 
-export default class ButtonComponent extends Component{
-
-  render(){
-    return(
-      <Button>
-        Button
-      </Button>
-    )
-  }
-}
+export default Button
