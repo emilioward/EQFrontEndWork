@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 
 import Dropdown from 'components/Dropdown'
-//import Pagination from 'components/Pagination'
+import Pagination from 'components/Pagination'
 import Options from 'components/Options'
-import TextField from 'components/TextField'
+import TextField from 'components/Forms/TextField'
 import {Button} from 'components/Button'
 import Breadcrumb from 'components/Breadcrumb'
 import Tabs from 'components/TabWindow/Tab'
 import Pane from 'components/TabWindow/Pane'
+import RichTextArea from 'components/Forms/RichText'
 
 import {fontfamily} from 'constants/theme'
 
@@ -17,9 +18,6 @@ const Wrapper = styled.div`
   margin-top: 20px;
   flex-direction: column;
   alignItems: 'center'
-`;
-
-const Section2 = styled.div`
 `;
 
 const HeadingText = styled.div`
@@ -55,6 +53,21 @@ const Link = styled.a`
    }
 `;
 
+const AddAnswerbtn = styled(Button)`
+  color: black;
+  padding: 60px;
+  background-color: #fafafa;
+  border: 2px dashed #e8e8e9;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:focus,
+  &:active {
+   outline: none
+  }
+`;
+
 const links = [<Link href="#">Page 1</Link>, <Link href="#">Page 2</Link>]
 
 class App extends Component {
@@ -67,7 +80,8 @@ class App extends Component {
         </AppHeader>
         <Breadcrumb links={links}/>
         <Wrapper>
-          {/* <Pagination/> */}        
+          <SubHeadingText>Pagination</SubHeadingText>
+          <Pagination/>
           <HeadingText>Forms</HeadingText>
           <SubHeadingText>Textfield</SubHeadingText>
           <div>Title</div>
@@ -78,24 +92,22 @@ class App extends Component {
           <SubHeadingText>Textarea</SubHeadingText>
           <div>Description</div>
           <TextField/>
+          <RichTextArea/>
           <SubHeadingText>Options</SubHeadingText>
           <Options/>
           <Button>Button</Button>
-
-          <Section2>
-            <Tabs selected={0}>
-              <Pane label="Tab 1">
-                <div>This is my tab 1 contents!</div>
-              </Pane>
-              <Pane label="Tab 2">
-                <div>This is my tab 2 contents!</div>
-              </Pane>
-              <Pane label="Tab 3">
-                <div>This is my tab 3 contents!</div>
-              </Pane>
-            </Tabs>
-          </Section2>
-
+          <AddAnswerbtn>Add an answer</AddAnswerbtn>
+          <Tabs selected={0}>
+            <Pane label="Tab 1">
+              <div>This is my tab 1 contents!</div>
+            </Pane>
+            <Pane label="Tab 2">
+              <div>This is my tab 2 contents!</div>
+            </Pane>
+            <Pane label="Tab 3">
+              <div>This is my tab 3 contents!</div>
+            </Pane>
+          </Tabs>
         </Wrapper>
       </div>
     );

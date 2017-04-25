@@ -1,5 +1,20 @@
 import React, { Component } from 'react'
-//import styled from 'styled-components';
+import styled from 'styled-components';
+
+const Paginationpane = styled.div`
+  display: inline-block;
+  margin: 10px 10px;
+  `
+
+const PageLinks = styled.a`
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  transition: background-color .2s;
+  &:hover{
+    background-color: #ddd;
+  }
+`
 
 export default class Pagination extends Component {
   constructor(props) {
@@ -7,34 +22,39 @@ export default class Pagination extends Component {
     this.state = {activePage: 1};
   }
 
-  handleSelect(event, selectedEvent) {
-    const eventKey = selectedEvent.eventKey;
-    const activePage = this.state.activePage;
-
-    if(eventKey === 'next') {
-      return this.setState({activePage: activePage + 1});
-    }
-
-    if(eventKey === 'prev') {
-      return this.setState({activePage: activePage - 1});
-    }
-
-    this.setState({activePage: selectedEvent.eventKey});
-    }
+  // handleSelect(event, selectedEvent) {
+  //   const eventKey = selectedEvent.eventKey;
+  //   const activePage = this.state.activePage;
+  //
+  //   if(eventKey === 'next') {
+  //     return this.setState({activePage: activePage + 1});
+  //   }
+  //
+  //   if(eventKey === 'prev') {
+  //     return this.setState({activePage: activePage - 1});
+  //   }
+  //
+  //   this.setState({activePage: selectedEvent.eventKey});
+  //   }
 
   render() {
     return (
-    <div>
-      <ul class="pagination"> <li><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-        <li><a>1</a></li>
-        <li class="disabled"><a>2</a></li>
-        <li><a>3</a></li>
-        <li class="active"><a>4</a></li>
-        <li><a>5</a></li>
-        <li><a aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-      </ul>
-      <Pagination items={2} activePage={this.state.activePage} onSelect={this.handleSelect.bind(this)} /> 
-    </div>
+
+      <div>
+        <Paginationpane>
+          <ul class="pagination">
+            <PageLinks><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></PageLinks>
+            <PageLinks><a>1</a></PageLinks>
+            <PageLinks><a class="disabled">2</a></PageLinks>
+            <PageLinks><a>3</a></PageLinks>
+            <PageLinks><a class="active">4</a></PageLinks>
+            <PageLinks><a>5</a></PageLinks>
+            <PageLinks><a aria-label="Next"><span aria-hidden="true">&raquo;</span></a></PageLinks>
+          </ul>
+        </Paginationpane>
+        {/* <Pagination items={2} activePage={this.state.activePage} onSelect={this.handleSelect.bind(this)} /> */}
+      </div>
+
     );
   }
 }
