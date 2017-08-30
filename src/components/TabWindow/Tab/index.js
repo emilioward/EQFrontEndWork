@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-//found this online at https://toddmotto.com/creating-a-tabs-component-with-react/ will modify later, i think some of this code is a bit dated
+//found this online at https://toddmotto.com/creating-a-tabs-component-with-react/
 
 const Tab = styled.div`
   margin: 25px;
@@ -28,9 +28,8 @@ const TabLabelsActive = styled.div`
   color: #444;
   text-decoration: none;
   border-bottom: 2px solid #f5f5f5;
-  &:active{
-    border-bottom-color: #337ab7;
-  }
+  cursor: pointer;
+  border-bottom-color: ${props => props.active ? '#337ab7' : ''};
 `;
 
 export default class Tabs extends Component {
@@ -52,11 +51,12 @@ export default class Tabs extends Component {
   _renderTitles() {
     function labels(child, index) {
       let activeClass = (this.state.selected === index ? 'active' : '');
+
       return (
         <TabLabelsDisplay>
-            <TabLabelsActive>
+            <TabLabelsActive active={activeClass}>
               <div key={index}>
-                <a href="#" className={activeClass} onClick={this.handleClick.bind(this, index)}>{child.props.label}</a>
+                <a className={activeClass} onClick={this.handleClick.bind(this, index)}>{child.props.label}</a>
               </div>
             </TabLabelsActive>
         </TabLabelsDisplay>

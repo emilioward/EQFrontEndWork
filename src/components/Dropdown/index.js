@@ -10,12 +10,11 @@ const Wrapper = styled.select`
  margin-bottom: 16px;
 `;
 
- export default class Dropdown extends Component {
+export default class Dropdown extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: 'Select one'};
-
+    this.state = {option1: 'Mango', option2: 'Lime', option3: 'Grapefruit'};
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -25,17 +24,13 @@ const Wrapper = styled.select`
 
   render(){
   return(
-
     <div id="dropdown">
-    <Wrapper value={this.state.value} onChange={this.handleChange}>
-        <option value="grapefruit">Grapefruit</option>
-        <option value="lime">Lime</option>
-        <option value="coconut">Coconut</option>
-        <option value="mango">Mango</option>
-    </Wrapper>
-
+      <Wrapper onChange={this.handleChange}>
+        <option>{this.state.option1}</option>
+        <option>{this.state.option2}</option>
+        <option>{this.state.option3}</option>
+      </Wrapper>
     </div>
-
     )
   }
 }
