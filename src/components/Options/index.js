@@ -13,14 +13,8 @@ export default class Options extends Component {
   render(){
     return (
       <Wrapper>
-      <div>
-        Radio Button:
-        <input type="radio" ></input>
-      </div>
-      <div>
-        Checkbox:
-        <input type="checkbox" ></input>
-      </div>
+      <label>Radio Button:<input type="radio" ></input></label>
+      <label>Checkbox:<input type="checkbox" ></input></label>
       </Wrapper>
     )
   }
